@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+*.log
+public/
+.deploy*/
+.vscode/
+*.zip
+node_modules/
+.history/
+.vscode/
+.idea/
