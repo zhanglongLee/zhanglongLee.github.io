@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lee的博客</title>
+  
+  <subtitle>前端工具人</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://resume.lzlstudy.top/"/>
+  <updated>2021-01-12T14:38:46.167Z</updated>
+  <id>http://resume.lzlstudy.top/</id>
+  
+  <author>
+    <name>黎章龙</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue面试题</title>
+    <link href="http://resume.lzlstudy.top/2021/01/11/vue-practice/"/>
+    <id>http://resume.lzlstudy.top/2021/01/11/vue-practice/</id>
+    <published>2021-01-11T04:51:20.000Z</published>
+    <updated>2021-01-12T14:38:46.167Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-v-show和v-if的区别？&quot;&gt;&lt;a href=&quot;#1-v-show和v-if的区别？&quot; class=&quot;headerlink&quot; title=&quot;1.v-show和v-if的区别？&quot;&gt;&lt;/a&gt;1.v-show和v-if的区别？&lt;/h1&gt;&lt;pre
+        
+      
+    
+    </summary>
+    
+      <category term="前端面试题" scheme="http://resume.lzlstudy.top/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="春招" scheme="http://resume.lzlstudy.top/tags/%E6%98%A5%E6%8B%9B/"/>
+    
+      <category term="Vue面试题" scheme="http://resume.lzlstudy.top/tags/Vue%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS面试题总结</title>
+    <link href="http://resume.lzlstudy.top/2021/01/10/js-practice/"/>
+    <id>http://resume.lzlstudy.top/2021/01/10/js-practice/</id>
+    <published>2021-01-10T02:09:23.000Z</published>
+    <updated>2021-01-13T15:18:12.422Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;p&gt;1.基本数据类型：String Number Boolean Undefined Null Symbol
+        
+      
+    
+    </summary>
+    
+      <category term="前端面试题" scheme="http://resume.lzlstudy.top/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="JavaScript面试题" scheme="http://resume.lzlstudy.top/tags/JavaScript%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+      <category term="春招" scheme="http://resume.lzlstudy.top/tags/%E6%98%A5%E6%8B%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端笔试题错题总结（二）</title>
+    <link href="http://resume.lzlstudy.top/2020/08/12/practive-day2/"/>
+    <id>http://resume.lzlstudy.top/2020/08/12/practive-day2/</id>
+    <published>2020-08-12T14:50:17.000Z</published>
+    <updated>2021-01-13T15:16:28.434Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;JavaScript的保留字有哪些？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;1.jpg&quot; alt=&quot;关键字1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;2.jpg&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端面试题" scheme="http://resume.lzlstudy.top/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="前端刷题" scheme="http://resume.lzlstudy.top/tags/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/"/>
+    
+      <category term="牛客网" scheme="http://resume.lzlstudy.top/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端笔试题错题总结（一）</title>
+    <link href="http://resume.lzlstudy.top/2020/08/11/practice-day1/"/>
+    <id>http://resume.lzlstudy.top/2020/08/11/practice-day1/</id>
+    <published>2020-08-11T13:54:17.000Z</published>
+    <updated>2021-01-12T14:30:07.214Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、静态语言和动态语言是什么？&quot;&gt;&lt;a href=&quot;#1、静态语言和动态语言是什么？&quot; class=&quot;headerlink&quot; title=&quot;1、静态语言和动态语言是什么？&quot;&gt;&lt;/a&gt;1、静态语言和动态语言是什么？&lt;/h1&gt;&lt;h4
+        
+      
+    
+    </summary>
+    
+      <category term="前端面试题" scheme="http://resume.lzlstudy.top/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="前端刷题" scheme="http://resume.lzlstudy.top/tags/%E5%89%8D%E7%AB%AF%E5%88%B7%E9%A2%98/"/>
+    
+      <category term="牛客网" scheme="http://resume.lzlstudy.top/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十大经典排序算法整理汇总（附代码）</title>
+    <link href="http://resume.lzlstudy.top/2020/02/16/sort-algorithms/"/>
+    <id>http://resume.lzlstudy.top/2020/02/16/sort-algorithms/</id>
+    <published>2020-02-16T07:09:23.000Z</published>
+    <updated>2021-01-09T17:55:01.746Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;关注公众号【算法码上来】，每日算法干货马上就来！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/medias/contact.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程算法" scheme="http://resume.lzlstudy.top/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode" scheme="http://resume.lzlstudy.top/tags/leetcode/"/>
+    
+      <category term="算法" scheme="http://resume.lzlstudy.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+</feed>
