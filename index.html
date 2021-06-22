@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://39.108.127.167:666/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>逃宝</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="./css/taobao.css" rel="stylesheet">
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap-datetimepicker.min.js"></script>
+    <script src="./js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="./js/common.js"></script>
+
+</head>
+<body class="modal-open">
+
+<div class="panel-body container">
+
+    <!-- 标题 -->
+    <div class="row title">
+        <p class="col-xs-12">逃 宝 <span class="version">V1.0.2</span></p>
+    </div>
+
+    <!-- 表单 -->
+    <form class="my-form" autocomplete="off">
+        <label for="stuName" class="stu-info-label">姓名</label>
+        <input type="text" class="form-control stu-info-input ph-style" id="stuName" placeholder="请输入姓名">
+        <label for="stuDept" class="stu-info-label">院系</label>
+        <input type="text" class="form-control stu-info-input ph-style" id="stuDept" placeholder="请输入院系">
+        <label for="stuNum" class="stu-info-label">学号</label>
+        <input type="text" class="form-control stu-info-input ph-style" id="stuNum" placeholder="请输入学号">
+        <label for="stuClass" class="stu-info-label">班级</label>
+        <input type="text" class="form-control stu-info-input ph-style" id="stuClass" placeholder="请输入班级">
+
+        <div class="date-form-box">
+            <span class="desc">请假开始时间</span>
+            <div class="input-group date">
+                <input id="startTime" class="form-control ph-style" type="text" placeholder="选择请假开始时间" readonly="">
+                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </span>
+            </div>
+        </div>
+
+        <div class="date-form-box">
+            <span class="desc">请假结束时间</span>
+            <div class="input-group date">
+                <input id="endTime" class="form-control ph-style" type="text" placeholder="选择请假结束时间" readonly="">
+                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </span>
+            </div>
+        </div>
+
+        <div class="status-box">
+            <span>凭证类型 </span>
+            <button id="leave">离校</button>
+            <span>&nbsp;</span>
+            <button id="enter" class="status-active">进校</button>
+            <span>&nbsp;</span>
+            <button id="overtime">逾期</button>
+        </div>
+
+    </form>
+
+    <div class="my-button">
+        <button type="button" id="removeInfo" class="remove-info btn">清空信息</button>
+        <button type="button" id="createPass" class="create-pass btn">生成凭证</button>
+    </div>
+
+</div>
+
+<div class="tips">
+    <span class="tips-author">使用 “逃宝” 出现任何问题概不负责 :)  Ter.</span>
+</div>
+
+<!-- 模态框 -->
+<div class="modal fade in" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel">《重要通知》</h3>
+            </div>
+            <div id="tips" class="modal-body">🔴 Recently,“逃宝” 的使用流量suddenly increase，出于疫情现况建议大家没40000000别出校门❗ ❗ ❗🚫 实在要出门但你觉得那啥不批的话才用逃宝。★正确的使用姿势建议是这样的：☛你🉐 先保存左下角那个红色的二维码▓，然后在进出校之前预先录入 “恰当”🤔 的个人信息，最后通过校门你就装个样子🤪 扫你保存的二维码就🉑 进入凭证页面了✔ (二维码保存一次就行，不会变的) 。这种姿势最为保守安全噢🤣 最后还是很不负责任的告诉你😅 出现任何问题全由你自己负责~~ 😎 ～～  ❤️ ✔️ ——  💔 ✖️ ——💬🔹  </div>
+            <div class="modal-footer">
+                <img class="qr-code-pass" src="./img/QR_code_pass.png" alt="" draggable="false">
+                <span>长按保存到手机</span>
+                <button type="button" class="close-btn" id="closeBtn">朕已阅</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="datetimepicker datetimepicker-dropdown-bottom-left dropdown-menu" style="left: 155px; z-index: 1060;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">21 六月 2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="minute">11:00</span><span class="minute">11:05</span><span class="minute">11:10</span><span class="minute">11:15</span><span class="minute active">11:20</span><span class="minute">11:25</span><span class="minute">11:30</span><span class="minute">11:35</span><span class="minute">11:40</span><span class="minute">11:45</span><span class="minute">11:50</span><span class="minute">11:55</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">21 六月 2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour">10:00</span><span class="hour active">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">六月 2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr><tr><th class="dow">日</th><th class="dow">一</th><th class="dow">二</th><th class="dow">三</th><th class="dow">四</th><th class="dow">五</th><th class="dow">六</th></tr></thead><tbody><tr><td class="day old">30</td><td class="day old">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td></tr><tr><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td></tr><tr><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td></tr><tr><td class="day">20</td><td class="day active">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td></tr><tr><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td></tr><tr><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td><td class="day new">9</td><td class="day new">10</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">一月</span><span class="month">二月</span><span class="month">三月</span><span class="month">四月</span><span class="month">五月</span><span class="month active">六月</span><span class="month">七月</span><span class="month">八月</span><span class="month">九月</span><span class="month">十月</span><span class="month">十一月</span><span class="month">十二月</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="year ">2019</span><span class="year">2020</span><span class="year active">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year ">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div><div class="datetimepicker datetimepicker-dropdown-bottom-left dropdown-menu" style="left: 155px; z-index: 1070;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">21 六月 2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="minute">11:00</span><span class="minute">11:05</span><span class="minute">11:10</span><span class="minute">11:15</span><span class="minute active">11:20</span><span class="minute">11:25</span><span class="minute">11:30</span><span class="minute">11:35</span><span class="minute">11:40</span><span class="minute">11:45</span><span class="minute">11:50</span><span class="minute">11:55</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">21 六月 2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour">10:00</span><span class="hour active">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">六月 2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr><tr><th class="dow">日</th><th class="dow">一</th><th class="dow">二</th><th class="dow">三</th><th class="dow">四</th><th class="dow">五</th><th class="dow">六</th></tr></thead><tbody><tr><td class="day old">30</td><td class="day old">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td></tr><tr><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td></tr><tr><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td></tr><tr><td class="day">20</td><td class="day active">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td></tr><tr><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td></tr><tr><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td><td class="day new">9</td><td class="day new">10</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2021</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">一月</span><span class="month">二月</span><span class="month">三月</span><span class="month">四月</span><span class="month">五月</span><span class="month active">六月</span><span class="month">七月</span><span class="month">八月</span><span class="month">九月</span><span class="month">十月</span><span class="month">十一月</span><span class="month">十二月</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="year ">2019</span><span class="year">2020</span><span class="year active">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year ">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">今天</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div>
+
+<script>
+    $(function () {
+        //加载模态框
+        showModal();
+        //初始化日期表单
+        initDateForm();
+        //回显信息
+        echoInfo();
+        //生成凭证
+        createPass();
+        //清空信息
+        removeInfo();
+        //状态控制器
+        statusController();
+        $('#closeBtn').click(()=>{
+            $('#my-modal').css('display','none')
+        })
+    });
+
+    //加载模态框
+    function showModal() {
+        $("#my-modal").modal("show");
+    }
+
+
+    //初始化日期表单
+    function initDateForm() {
+        $('.date-form-box .date').datetimepicker({
+            language: "zh-CN",                  //以中文显示
+            autoclose: true,                    //选择完毕后自动关闭选择器
+            pickerPosition: "bottom-left",      //选择器显示位置
+            format: "yyyy-mm-dd hh:00",         //日期格式
+            startView: "month",                 //初始日期从月开始
+            minView: "day"                      //最精确视图为日
+        });
+    }
+
+    //回显信息
+    function echoInfo() {
+        let defaultData = {
+            endTime: "" ,
+            startTime: "",
+            statusType: "进校",
+            stuClass: "17网络工程",
+            stuDept: "计算机学院",
+            stuName: "",
+            stuNum: "175511170"
+        };
+        let data = localStorage.getItem('passData')&&JSON.parse(localStorage.getItem('passData')) || defaultData
+        $("#stuName").val(data.stuName);
+        $("#stuDept").val(data.stuDept);
+        $("#stuNum").val(data.stuNum);
+        $("#stuClass").val(data.stuClass);
+        $("#startTime").val(data.startTime);
+        $("#endTime").val(data.endTime);
+        $(`#${data.statusType}`).addClass('status-active')
+    }
+
+    //生成凭证
+    function createPass() {
+        $("#createPass").click(function () {
+            let statusType = "未选择凭证类型"
+            if ($("#leave").hasClass("status-active")) {
+                statusType = "离校"
+            } else if ($("#enter").hasClass("status-active")) {
+                statusType = "进校"
+            } else if ($("#overtime").hasClass("status-active")) {
+                statusType = "逾期"
+            }
+            let data = {
+                "stuName": $("#stuName").val(),
+                "stuDept": $("#stuDept").val(),
+                "stuNum": $("#stuNum").val(),
+                "stuClass": $("#stuClass").val(),
+                "statusType": statusType,
+                "startTime":$("#startTime").val(),
+                "endTime":$("#endTime").val()
+            }
+            localStorage.setItem('passData',JSON.stringify(data))
+            location.href = "./pass.html";
+        });
+    }
+
+    //清空信息
+    function removeInfo() {
+        $("#removeInfo").click(function () {
+            //清除表单信息
+            $("#stuName").val("")
+            $("#stuDept").val("")
+            $("#stuNum").val("")
+            $("#stuClass").val("")
+            $("#startTime").val("")
+            $("#endTime").val("")
+            localStorage.removeItem('passData')
+            //去除状态
+            $("#leave, #enter, #overtime").removeClass("status-active");
+        });
+    }
+
+    //状态控制器
+    function statusController() {
+        $("#leave").click(function () {
+            if ($(this).hasClass("status-active")) {
+                $(this).removeClass("status-active");
+            } else {
+                $("#enter").removeClass("status-active");
+                $("#overtime").removeClass("status-active");
+                $(this).addClass("status-active");
+            }
+            return false;
+        });
+        $("#enter").click(function () {
+            if ($(this).hasClass("status-active")) {
+                $(this).removeClass("status-active");
+            } else {
+                $("#leave").removeClass("status-active");
+                $("#overtime").removeClass("status-active");
+                $(this).addClass("status-active");
+            }
+            return false;
+        });
+        $("#overtime").click(function () {
+            if ($(this).hasClass("status-active")) {
+                $(this).removeClass("status-active");
+            } else {
+                $("#leave").removeClass("status-active");
+                $("#enter").removeClass("status-active");
+                $(this).addClass("status-active");
+            }
+            return false;
+        });
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+body {
+    background-color: #232323;
+}
+
+.panel-body {
+    width: 90%;
+    margin: 10px auto 0;
+    padding: 0;
+    background-color: #3e3e3e;
+    border: 3px solid #ff4f4f;
+    box-shadow: 0 0 25px #ff4f4f inset; /*内阴影效果*/
+    border-radius: 15px;
+}
+
+/* 标题 ********************************************/
+.title {
+    border-bottom: 3px solid #ff4f4f;
+    padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title p {
+    font-size: 25px;
+    color: #ff4f4f;
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+}
+
+.title p span {
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #3f95ff;
+    display: inline-block;
+    width: 50px;
+    border-radius: 50px;
+}
+
+/* 表单 ***********************************************/
+.my-form {
+    padding: 0 15px;
+}
+
+.my-form .stu-info-label {
+    color: #eeeeee;
+    margin: 15px 0 3px;
+}
+
+.my-form .stu-info-input {
+    background-color: #6f6f6f;
+    border-color: #bfbfbf;
+    color: #eeeeee;
+}
+
+/*输入框内的字体样式*/
+.ph-style::-webkit-input-placeholder { /* WebKit browsers */
+    color: #bfbfbf;
+}
+
+.ph-style:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #bfbfbf;
+}
+
+.ph-style::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #bfbfbf;
+}
+
+.ph-style:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #bfbfbf;
+}
+
+/* 请假时间 */
+.my-form .date-form-box {
+    margin-top: 15px;
+}
+
+.my-form .date-form-box .desc {
+    font-weight: bolder;
+    color: #eeeeee;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.my-form .date-form-box .date .form-control {
+    background-color: #6f6f6f;
+    border-color: #bfbfbf;
+    color: #eeeeee;
+}
+
+.my-form .date-form-box .date .input-group-addon {
+    background-color: #eeeeee;
+    border-color: #eeeeee;
+    color: #6f6f6f;
+}
+
+
+/* 状态 */
+.my-form .status-box {
+    margin-top: 15px;
+}
+
+.my-form .status-box span {
+    font-weight: bolder;
+    color: #eeeeee;
+}
+
+.my-form .status-box button {
+    background-color: #3e3e3e;
+    color: #eeeeee;
+    width: 60px;
+    outline: none; /*去除点击时的边框*/
+    border: 1px solid #bfbfbf; /*去除边框*/
+    border-radius: 50px;
+}
+
+.status-active {
+    border-color: #ff4f4f !important;
+    color: #ff4f4f !important;
+}
+
+/* 按钮 *******************************************/
+.my-button {
+    width: 75%;
+    margin: 25px auto 0;
+}
+
+.my-button button {
+    border: 0 !important; /*去除边框*/
+    outline: none !important; /*去除点击时的边框*/
+    margin-bottom: 25px;
+}
+
+.my-button .remove-info {
+    background-color: #ff4f4f;
+    color: #ffffff;
+    float: left;
+}
+
+.my-button .create-pass {
+    background-color: #3f95ff;
+    color: #ffffff;
+    float: right;
+}
+
+.tips {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.tips span {
+    color: #ff4f4f;
+}
+
+/* 模态框 */
+.modal .modal-content {
+    margin-top: 100px;
+    background-color: #232323;
+}
+
+.modal .modal-header {
+    color: #ff4f4f;
+    border-bottom: 1px solid #ff4f4f;
+}
+
+.modal .modal-body {
+    color: #eeeeee;
+    font-size: 15px;
+}
+
+.modal .qr-code-pass {
+    width: 50px;
+    float: left;
+}
+
+.modal .modal-footer {
+    border-top: none;
+}
+
+.modal .modal-footer span {
+    color: #ff4f4f;
+    float: left;
+    margin: 15px 0 0 5px;
+}
+
+.modal .modal-footer .close-btn {
+    background-color: #ff4f4f;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 13px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

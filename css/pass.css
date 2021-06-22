@@ -1,0 +1,88 @@
+body {
+    background-color: #f3f3f3;
+}
+
+.panel-body {
+    background-color: #ffffff;
+    width: 85%;
+    margin: 30px auto 0;
+    padding: 0;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+}
+
+/* 标题 ********************************************/
+.title {
+    border-bottom: 1px solid #dddddd;
+    padding: 15px;
+}
+
+.title p {
+    font-size: 18px;
+    color: #676b6e;
+    margin: 0;
+    padding: 0;
+}
+
+/* 个人信息 ***********************************************/
+.personal-info {
+    padding: 0 20px;
+}
+
+.personal-info p {
+    margin: 25px 0 0;
+    color: #6479bc;
+    font-size: 15px;
+}
+
+.personal-info .line-bottom {
+    height: 1px;
+    background-color: #dddddd;
+    margin-top: 5px;
+}
+
+/* 请假信息 *****************************************************/
+.leave-info {
+    border-left: 1px solid #dddddd;
+    margin-top: 15px;
+}
+
+.leave-info p {
+    color: #676b6e;
+    font-size: 13px;
+}
+
+.leave-info img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+}
+
+/* 线条 *******************************/
+.line {
+    padding: 0 10px;
+    margin-top: 30px;
+}
+
+.line div {
+    height: 1px;
+    background-color: #dddddd;
+}
+
+/* 状态 *********************************************/
+.status {
+    margin: 40px 0 13px;
+    font-size: 30px;
+    color: #676b6e;
+}
+
+
+
+
+
+
+
+
+
+
+

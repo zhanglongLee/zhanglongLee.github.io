@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://39.108.127.167:666/pass.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的请假凭证</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/pass.css" rel="stylesheet">
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/pass.js"></script>
+    <script src="./js/common.js"></script>
+
+</head>
+<body>
+
+<div class="panel-body">
+
+    <div class="container">
+
+        <!-- 标题 -->
+        <div class="row title">
+            <p class="col-xs-12">广东二师请假审批通过凭证</p>
+        </div>
+
+        <div class="row">
+            <!-- 个人信息 -->
+            <div class="personal-info col-xs-5">
+                <p id="stuName">未输入姓名</p>
+                <div class="line-bottom"></div>
+                <p id="stuDept">未输入院系</p>
+                <div class="line-bottom"></div>
+                <p id="stuNum">未输入学号</p>
+                <div class="line-bottom"></div>
+                <p id="stuClass">未输入班级</p>
+                <div class="line-bottom"></div>
+            </div>
+            <!-- 请假信息 -->
+            <div class="leave-info col-xs-7">
+                <p>请假起止时间：</p>
+                <p id="startTime">未选择请假开始时间</p>
+                <p id="endTime">未选择请假结束时间</p>
+                <img id="qrCode" src="./img/QR_code.png" alt="" draggable="false">
+            </div>
+        </div>
+
+        <!-- 线条 -->
+        <div class="line row">
+            <div class="col-xs-12"></div>
+        </div>
+
+        <!-- 状态 -->
+        <div class="row">
+            <p id="status" class="status col-xs-12">进校</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    $(function () {
+        showPassInfo();
+    });
+
+    //显示凭证信息
+    function showPassInfo() {
+        let data = localStorage.getItem('passData')&&JSON.parse(localStorage.getItem('passData')) || {}
+        $("#stuName").text(data.stuName ? data.stuName : "未输入姓名");
+        $("#stuDept").text(data.stuDept ? data.stuDept : "未输入院系");
+        $("#stuNum").text(data.stuNum ? data.stuNum : "未输入学号");
+        $("#stuClass").text(data.stuClass ? data.stuClass : "未输入班级");
+        let startTime = getFormatTime(data.startTime);
+        $("#startTime").text(startTime ? startTime + "-" : "未选择请假开始时间");
+        let endTime = getFormatTime(data.endTime);
+        $("#endTime").text(endTime ? endTime : "未选择请假结束时间");
+        console.log(data.statusType)
+        // 逾期特殊处理
+        if (data.statusType === "逾期") {
+            $("#status").text("请假过期,逾期返校");
+            $("#qrCode").attr("src","./img/QR_code_overtime.png")
+        }else{
+            $("#status").text(data.statusType ? data.statusType : "未选择凭证类型")
+        }
+    }
+
+    //获取指定格式化的时间
+    function getFormatTime(time) {
+        if (time) {
+            let date = time.split(" ")[0].split("-");
+            //年月日
+            date = date[0] + "年"
+                + ((date[1])[0] !== "0" ? date[1] : (date[1])[1]) + "月"
+                + ((date[2])[0] !== "0" ? date[2] : (date[2])[1]) + "日";
+            //时
+            let hour = time.split(" ")[1].split(":")[0];
+            hour = (hour[0] !== "0" ? hour : hour[1]) + "时";
+            return date + hour;
+        }
+        return time;
+    }
+
+
+</script>
+</body>
+
+</html>
